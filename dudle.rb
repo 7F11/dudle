@@ -135,8 +135,8 @@ class Dudle
 		 if params[:revision]
 				@table = YAML.safe_load(VCS.cat(revision, 'data.yaml'), permitted_classes: [Poll, PollHead, TimePollHead, TimeString, Date, Time])
 			else
-				@table = YAML.load_file('data.yaml')
-   end
+				@table = YAML.safe_load(File.read('data.yaml'), permitted_classes: [Poll, PollHead, TimePollHead, TimeString, Date, Time])
+			end
 			@urlsuffix = File.basename(File.expand_path('.'))
 			@title = @table.name
 
