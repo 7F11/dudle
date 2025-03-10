@@ -37,7 +37,7 @@ require_relative 'config_defaults'
 require_relative 'poll'
 Dir.chdir(olddir)
 
-poll = YAML.safe_load(File.read('data.yaml'), permitted_classes: [Poll, PollHead, TimePollHead, TimeString, Date, Time])
+poll = YAML.load_file('data.yaml')
 
 feed.title = poll.name
 feed.id = "urn:dudle:#{poll.class}:#{poll.name}"
