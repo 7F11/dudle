@@ -25,7 +25,7 @@ class TimeString
 
 	def initialize(date, time)
 		@date = date.class == Date ? date : Date.parse(date)
-		if time =~ /^\d[\d]?:\d[\d]?$/
+		if time.to_s =~ /^\d[\d]?:\d[\d]?$/
 			begin
 				# TODO: what to do with 24:00 ???
 				#					if time == "24:00"
